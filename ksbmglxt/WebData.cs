@@ -7,6 +7,7 @@ public class WebData
 {
     public const string 登录用户 = "LoginUser";
     public const string 登录用户名 = "LoginUserName";
+    public const string 登录用户类别 = "LoginUserType";
     /// <summary>
     /// 登录用户
     /// </summary>

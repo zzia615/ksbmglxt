@@ -12,6 +12,10 @@ namespace ksbmglxt
         protected void Page_Load(object sender, EventArgs e)
         {
             WebData.CurrentMenu = "用户管理";
+            if (Session[WebData.登录用户类别].AsString() != "系统管理员")
+            {
+                GridView1.Columns[4].Visible = false;
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)

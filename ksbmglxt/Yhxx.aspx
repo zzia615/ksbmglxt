@@ -17,9 +17,12 @@
     <div class="layui-input-inline">
         <asp:Button ID="Button1" runat="server" Text="查询" CssClass="layui-btn" OnClick="Button1_Click"/>
     </div>
+    <%if (Session[WebData.登录用户类别].AsString() == "系统管理员")
+        {%>
     <div class="layui-input-inline">
         <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="YhxxAdd.aspx" CssClass="layui-btn">新增</asp:HyperLink>
     </div>
+        <%} %>
 </div>
 <div>
     <asp:GridView ID="GridView1" runat="server" CssClass="layui-table" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="yhzh">
@@ -32,7 +35,7 @@
                 <ItemTemplate>
                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "YhxxEdit.aspx?yhzh="+Eval("yhzh")%>' Text="编辑" CssClass="layui-btn layui-btn-sm"></asp:HyperLink>
                     <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# "YhxxDelete.aspx?yhzh="+Eval("yhzh")%>' Text="删除" CssClass="layui-btn layui-btn-sm layui-btn-danger"></asp:HyperLink>
-                </ItemTemplate>
+               </ItemTemplate>
             </asp:TemplateField>
         </Columns>
     </asp:GridView>

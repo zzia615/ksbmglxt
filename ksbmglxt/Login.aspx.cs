@@ -12,7 +12,7 @@ namespace ksbmglxt
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Clear();
         }
 
         protected void login_Click(object sender, EventArgs e)
@@ -28,6 +28,7 @@ namespace ksbmglxt
             {
                 Session[WebData.登录用户] = s_yhzh;
                 Session[WebData.登录用户名] = table.Rows[0]["yhxm"].AsString();
+                Session[WebData.登录用户类别] = table.Rows[0]["yhjs"].AsString();
                 Response.Write("<script>alert('登录成功！');window.location.href='Default.aspx';</script>");
             }
             else
