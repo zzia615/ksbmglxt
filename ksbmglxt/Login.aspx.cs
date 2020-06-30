@@ -27,7 +27,7 @@ namespace ksbmglxt
             if (table.Count() > 0)
             {
                 Session[WebData.登录用户] = s_yhzh;
-                Session[WebData.登录账号] = table.Rows[0]["yhxm"].AsString();
+                Session[WebData.登录用户名] = table.Rows[0]["yhxm"].AsString();
                 Response.Write("<script>alert('登录成功！');window.location.href='Default.aspx';</script>");
             }
             else

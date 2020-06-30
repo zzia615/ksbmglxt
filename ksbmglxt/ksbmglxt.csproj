@@ -192,6 +192,7 @@
     <Content Include="Yhxx.aspx" />
     <Content Include="SjxxAdd.aspx" />
     <Content Include="SjxxUpload.aspx" />
+    <Content Include="ChangePwd.aspx" />
     <Content Include="YhxxEdit.aspx" />
     <Content Include="YhxxAdd.aspx" />
     <Content Include="YhxxDelete.aspx" />
@@ -297,6 +298,13 @@
     </Compile>
     <Compile Include="SjxxUpload.aspx.designer.cs">
       <DependentUpon>SjxxUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePwd.aspx.cs">
+      <DependentUpon>ChangePwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePwd.aspx.designer.cs">
+      <DependentUpon>ChangePwd.aspx</DependentUpon>
     </Compile>
     <Compile Include="YhxxEdit.aspx.cs">
       <DependentUpon>YhxxEdit.aspx</DependentUpon>

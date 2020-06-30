@@ -11,7 +11,10 @@ namespace ksbmglxt
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrEmpty(Session[WebData.登录用户].AsString()))
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }

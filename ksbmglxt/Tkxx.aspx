@@ -5,8 +5,6 @@
     <div class="layui-inline">
     <div class="layui-input-inline">
         <select runat="server" id="tjlb">
-            <option value="">请选择类别</option>
-            <option value="id">编码</option>
             <option value="mc">题目</option>
         </select>
     </div>
@@ -23,7 +21,8 @@
 <div>
     <asp:GridView ID="GridView1" runat="server" CssClass="layui-table" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="id">
         <Columns>
-            <asp:BoundField DataField="id" HeaderText="编码" ReadOnly="True" SortExpression="id" />
+            <asp:BoundField DataField="id" HeaderText="编码" Visible="false" ReadOnly="True" SortExpression="id" />
+            <asp:BoundField DataField="xh" HeaderText="序号" SortExpression="xh" />
             <asp:BoundField DataField="mc" HeaderText="题目" SortExpression="mc" />
             <asp:BoundField DataField="jg" HeaderText="结果" SortExpression="jg" />
             <asp:BoundField DataField="fs" HeaderText="分数" SortExpression="fs" />
@@ -35,6 +34,6 @@
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ksbmglxtConStr %>" SelectCommand="SELECT * FROM [Tkxx]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ksbmglxtConStr %>" SelectCommand="SELECT Tkxx.*,ROW_NUMBER() OVER (ORDER BY Tkxx.id ASC) AS xh FROM [Tkxx]"></asp:SqlDataSource>
 </div>
 </asp:Content>

@@ -6,7 +6,7 @@ using System.Web;
 public class WebData
 {
     public const string 登录用户 = "LoginUser";
-    public const string 登录账号 = "LoginUserName";
+    public const string 登录用户名 = "LoginUserName";
     /// <summary>
     /// 登录用户
     /// </summary>
@@ -39,6 +39,7 @@ public class WebData
             _menu.Add("用户管理", "Yhxx.aspx");
             _menu.Add("试卷管理", "Sjxx.aspx");
             _menu.Add("题库管理", "Tkxx.aspx");
+            _menu.Add("修改密码", "ChangePwd.aspx");
             return _menu;
         }
     }

@@ -18,7 +18,7 @@ namespace ksbmglxt
         {
             string s_tjlb = tjlb.Value;
             string s_tjnr = tjnr.Text;
-            string sql = "select * from Tkxx where 1=1";
+            string sql = "select Tkxx.*,ROW_NUMBER() OVER (ORDER BY Tkxx.id ASC) AS xh from Tkxx where 1=1";
             if(!string.IsNullOrEmpty(s_tjlb)&&
                 !string.IsNullOrEmpty(s_tjnr))
             {
