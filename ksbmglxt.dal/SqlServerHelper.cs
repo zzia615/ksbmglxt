@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -128,6 +129,31 @@ public class SqlServerHelper
                 //设置执行的Sql语句（语句限定insert update delete）
                 cmd.CommandText = sql;
                 cmd.CommandType = System.Data.CommandType.Text;
+                //执行Sql语句
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
+
+    public int ExecuteSql(string sql,SqlParameter[] parameters)
+    {
+        //实例化SqlConnection对象
+        using (var con = CreateCon())
+        {
+            //打开数据库
+            con.Open();
+            try
+            {
+                //创建SqlCommand对象
+                var cmd = con.CreateCommand();
+                //设置执行的Sql语句（语句限定insert update delete）
+                cmd.CommandText = sql;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddRange(parameters);
                 //执行Sql语句
                 return cmd.ExecuteNonQuery();
             }

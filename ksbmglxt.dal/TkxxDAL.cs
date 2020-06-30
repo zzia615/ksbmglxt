@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.SqlClient;
 
 namespace ksbmglxt.dal
 {
@@ -26,16 +27,28 @@ namespace ksbmglxt.dal
         public int AddTkxx(string s_mc, string s_jg, string s_fs)
         {
             string sql = string.Format("insert into tkxx(mc,jg,fs)" +
-                "values('{0}','{1}','{2}')", s_mc,  s_jg, s_fs);
-            return new SqlServerHelper().ExecuteSql(sql);
+                "values(@mc,@jg,@fs)");
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@mc",s_mc),
+                new SqlParameter("@jg",s_jg),
+                new SqlParameter("@fs",s_fs)
+            };
+            return new SqlServerHelper().ExecuteSql(sql, parameters);
         }
 
         public int EditTkxx(string s_id, string s_mc, string s_jg, string s_fs)
         {
-            string sql = string.Format("update Tkxx set mc='{1}',jg='{2}',fs='{3}'" +
-                " where id='{0}'"
-                , s_id, s_mc, s_jg, s_fs);
-            return new SqlServerHelper().ExecuteSql(sql);
+            string sql = string.Format("update Tkxx set mc=@mc,jg=@jg,fs=@fs" +
+                " where id=@id");
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@mc",s_mc),
+                new SqlParameter("@jg",s_jg),
+                new SqlParameter("@fs",s_fs),
+                new SqlParameter("@id",int.Parse(s_id))
+            };
+            return new SqlServerHelper().ExecuteSql(sql, parameters);
         }
 
         public int DelTkxx(string s_id)
