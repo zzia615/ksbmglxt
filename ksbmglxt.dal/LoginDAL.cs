@@ -20,7 +20,7 @@ namespace ksbmglxt.dal
                     "yhjs nvarchar(50) default '普通管理员' not null" +
                     ")";
                 Sql.ExecuteSql(sql);
-                sql = "insert into yhxx(yhzh,yhxm,yhmm) values('admin','admin','admin')";
+                sql = "insert into yhxx(yhzh,yhxm,yhmm,yhjs) values('admin','admin','admin','系统管理员')";
                 Sql.ExecuteSql(sql);
             }
         }
